@@ -21,12 +21,12 @@ class BikeShareActivity : AppCompatActivity() {
         this.endRide = this.findViewById(R.id.end_button)
 
         this.addRide.setOnClickListener {
-            intent = Intent(this,  StartRideActivity::class.java)
+            val intent = Intent(this,  StartRideActivity::class.java)
             this.startActivity(intent)
         }
 
         this.endRide.setOnClickListener {
-            intent = Intent(this, EndRideActivity::class.java)
+            val intent = Intent(this, EndRideActivity::class.java)
             this.startActivity(intent)
         }
     }
