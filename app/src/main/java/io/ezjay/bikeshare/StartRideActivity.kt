@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import io.ezjay.bikeshare.data.Ride
+import io.ezjay.bikeshare.data.RidesDb
 
 class StartRideActivity : AppCompatActivity() {
 
@@ -28,7 +29,10 @@ class StartRideActivity : AppCompatActivity() {
         this.addRide.setOnClickListener {
             if (!isEmpty(this.newWhat) && !isEmpty(this.newWhere)) {
                 this.lastRide.bikeName = this.newWhat.text.toString().trim()
-                this.lastRide.startRide =this.newWhere.text.toString().trim()
+                this.lastRide.startRide = this.newWhere.text.toString().trim()
+
+                // Add to "db"
+                RidesDb.addRide(this.newWhat.text.toString().trim(), this.newWhere.text.toString().trim())
 
                 this.newWhat.text = ""
                 this.newWhere.text = ""

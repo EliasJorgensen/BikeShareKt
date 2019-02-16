@@ -26,4 +26,13 @@
         android:layout_gravity="center"
         android:text="@string/end_ride" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+    <ListView
+        android:id="@+id/ride_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>

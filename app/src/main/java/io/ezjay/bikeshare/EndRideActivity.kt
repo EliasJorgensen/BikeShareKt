@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import io.ezjay.bikeshare.data.Ride
+import io.ezjay.bikeshare.data.RidesDb
 
 class EndRideActivity : AppCompatActivity() {
 
@@ -29,6 +30,8 @@ class EndRideActivity : AppCompatActivity() {
             if (!isEmpty(this.newWhat) && !isEmpty(this.newWhere)) {
                 this.lastRide.bikeName = this.newWhat.text.toString().trim()
                 this.lastRide.endRide =this.newWhere.text.toString().trim()
+
+                RidesDb.endRide(this.newWhat.text.toString().trim(), this.newWhere.text.toString().trim())
 
                 this.newWhat.text = ""
                 this.newWhere.text = ""
