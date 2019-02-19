@@ -5,4 +5,5 @@
     <string name="last_added">Last added</string>
     <string name="add_ride">Add ride</string>
     <string name="end_ride">End Ride</string>
+    <string name="list_rides">List Rides</string>
 </resources>
