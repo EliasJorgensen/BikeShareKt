@@ -1,50 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="10dp"
-    android:orientation="vertical"
     tools:context=".BikeShareActivity"
-    android:gravity="center|center_horizontal|center_vertical" >
-
-    <Button
-        android:id="@+id/add_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/add_ride" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
-
-    <Button
-        android:id="@+id/end_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/end_ride" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
-
-    <Button
-        android:id="@+id/list_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/list_rides" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
-
-    <ListView
-        android:id="@+id/ride_list"
-        android:visibility="gone"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
-
-</LinearLayout>
+    android:id="@+id/fragment_container" />
