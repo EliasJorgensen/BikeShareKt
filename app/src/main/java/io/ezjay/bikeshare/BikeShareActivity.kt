@@ -9,8 +9,7 @@ class BikeShareActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bike_share)
 
-        val fm = this.supportFragmentManager
-        fm.beginTransaction()
+        this.supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, BikeShareFragment())
             .commit()
     }

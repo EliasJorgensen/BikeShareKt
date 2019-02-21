@@ -45,6 +45,11 @@ class BikeShareFragment : Fragment() {
         }
 
         this.list = view.findViewById(R.id.ride_list)
-        this.list.adapter = RideArrayAdapter(view.context, RidesDb.getRides())
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if (this.view?.context != null)
+            this.list.adapter = RideArrayAdapter(this.view!!.context, RidesDb.getRides())
     }
 }
