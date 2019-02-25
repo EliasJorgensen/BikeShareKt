@@ -2,6 +2,8 @@ package io.ezjay.bikeshare
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.widget.FrameLayout
+import io.ezjay.bikeshare.fragment.BikeShareFragment
 
 class BikeShareActivity : AppCompatActivity() {
 
@@ -9,8 +11,10 @@ class BikeShareActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_bike_share)
 
-        this.supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, BikeShareFragment())
-            .commit()
+        if (this.findViewById<FrameLayout>(R.id.fragment_container) != null && savedInstanceState == null) {
+            this.supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, BikeShareFragment())
+                .commit()
+        }
     }
 }
