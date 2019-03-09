@@ -1,9 +1,10 @@
-package io.ezjay.bikeshare
+package io.ezjay.bikeshare.activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import io.ezjay.bikeshare.R
 import io.ezjay.bikeshare.data.Ride
 import io.ezjay.bikeshare.data.RidesDb
 

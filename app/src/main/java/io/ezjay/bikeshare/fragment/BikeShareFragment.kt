@@ -3,14 +3,15 @@ package io.ezjay.bikeshare.fragment
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ListView
-import io.ezjay.bikeshare.EndRideActivity
+import io.ezjay.bikeshare.activity.EndRideActivity
 import io.ezjay.bikeshare.R
-import io.ezjay.bikeshare.StartRideActivity
+import io.ezjay.bikeshare.activity.StartRideActivity
 import io.ezjay.bikeshare.adapter.RideArrayAdapter
 import io.ezjay.bikeshare.data.RidesDb
 
@@ -19,7 +20,7 @@ class BikeShareFragment : Fragment() {
     private lateinit var addRide : Button
     private lateinit var endRide : Button
     private lateinit var listRides : Button
-    private lateinit var list : ListView
+    private lateinit var list : RecyclerView
 
     private var showList = false
 
@@ -37,6 +38,7 @@ class BikeShareFragment : Fragment() {
         this.listRides = view.findViewById(R.id.list_button)
 
         this.list = view.findViewById(R.id.ride_list)
+        this.list.layoutManager = LinearLayoutManager(this.context)
 
         this.registerEventListeners()
 
@@ -49,7 +51,7 @@ class BikeShareFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         if (this.view?.context != null)
-            this.list.adapter = RideArrayAdapter(this.view!!.context, RidesDb.getRides())
+            this.list.adapter = RideArrayAdapter(RidesDb.getRides())
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
