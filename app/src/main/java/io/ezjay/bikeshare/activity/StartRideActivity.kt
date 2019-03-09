@@ -7,6 +7,7 @@ import android.widget.TextView
 import io.ezjay.bikeshare.R
 import io.ezjay.bikeshare.data.Ride
 import io.ezjay.bikeshare.data.RidesDb
+import java.util.*
 
 class StartRideActivity : AppCompatActivity() {
 
@@ -16,7 +17,7 @@ class StartRideActivity : AppCompatActivity() {
     private lateinit var newWhat : TextView
     private lateinit var newWhere : TextView
 
-    private var lastRide : Ride = Ride("", "", "")
+    private var lastRide : Ride = Ride("", "", "", Date(), Date())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

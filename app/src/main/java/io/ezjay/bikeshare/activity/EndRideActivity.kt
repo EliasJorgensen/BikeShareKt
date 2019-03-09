@@ -7,6 +7,7 @@ import android.widget.TextView
 import io.ezjay.bikeshare.R
 import io.ezjay.bikeshare.data.Ride
 import io.ezjay.bikeshare.data.RidesDb
+import java.util.*
 
 class EndRideActivity : AppCompatActivity() {
 
@@ -16,7 +17,7 @@ class EndRideActivity : AppCompatActivity() {
     private lateinit var newWhat : TextView
     private lateinit var newWhere : TextView
 
-    private var lastRide : Ride = Ride("", "", "")
+    private var lastRide : Ride = Ride("", "", "", Date(), Date())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +31,7 @@ class EndRideActivity : AppCompatActivity() {
         this.endRide.setOnClickListener {
             if (!isEmpty(this.newWhat) && !isEmpty(this.newWhere)) {
                 this.lastRide.bikeName = this.newWhat.text.toString().trim()
-                this.lastRide.endRide =this.newWhere.text.toString().trim()
+                this.lastRide.endRide = this.newWhere.text.toString().trim()
 
                 RidesDb.endRide(this.newWhat.text.toString().trim(), this.newWhere.text.toString().trim())
 
