@@ -8,12 +8,9 @@ class Main : Application() {
     override fun onCreate() {
         super.onCreate()
         Realm.init(this)
-    }
-
-    companion object {
-        fun getRealmConfig() : RealmConfiguration =
+        Realm.setDefaultConfiguration(
             RealmConfiguration.Builder()
-                .deleteRealmIfMigrationNeeded()
-                .build()
+                    .deleteRealmIfMigrationNeeded()
+                    .build())
     }
 }

@@ -15,7 +15,7 @@ class EndRideActivity : AppCompatActivity() {
     private lateinit var newWhat : TextView
     private lateinit var newWhere : TextView
 
-    private var lastRide : Ride = Ride("", "", "", Ride.getFormattedDate(), Ride.getFormattedDate())
+    //private var lastRide : Ride = Ride("", "", "", Ride.getFormattedDate(), Ride.getFormattedDate())
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,10 +28,10 @@ class EndRideActivity : AppCompatActivity() {
 
         this.endRide.setOnClickListener {
             if (!isEmpty(this.newWhat) && !isEmpty(this.newWhere)) {
-                this.lastRide.bikeName = this.newWhat.text.toString().trim()
-                this.lastRide.endRide = this.newWhere.text.toString().trim()
+                //this.lastRide.bikeName = this.newWhat.text.toString().trim()
+                //this.lastRide.endLocation = this.newWhere.text.toString().trim()
 
-                RidesDb.endRide(this.newWhat.text.toString().trim(), this.newWhere.text.toString().trim())
+                //RidesDb.endRide(this.newWhat.text.toString().trim(), this.newWhere.text.toString().trim())
 
                 this.newWhat.text = ""
                 this.newWhere.text = ""
@@ -43,7 +43,7 @@ class EndRideActivity : AppCompatActivity() {
     }
 
     private fun updateUI() {
-        this.lastAdded.text = this.lastRide.toString()
+        //this.lastAdded.text = this.lastRide.toString()
     }
 
     private fun isEmpty(text: TextView): Boolean {

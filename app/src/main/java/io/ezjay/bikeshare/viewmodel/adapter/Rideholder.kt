@@ -20,8 +20,8 @@ class RideHolder (
 
     fun bind(ride: Ride) {
         this.bikeView.append(ride.bikeName)
-        this.startView.append(ride.startRide)
-        this.endView.append(ride.endRide)
+        this.startView.append(ride.startLocation)
+        this.endView.append(ride.endLocation)
         this.startTimeView.append(ride.startTime)
         this.endTimeView.append(ride.endTime)
     }
