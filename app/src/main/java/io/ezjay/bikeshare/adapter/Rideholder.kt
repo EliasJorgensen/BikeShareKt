@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import io.ezjay.bikeshare.R
-import io.ezjay.bikeshare.data.Ride
+import io.ezjay.bikeshare.entity.Ride
 
 class RideHolder (
     inflater : LayoutInflater,

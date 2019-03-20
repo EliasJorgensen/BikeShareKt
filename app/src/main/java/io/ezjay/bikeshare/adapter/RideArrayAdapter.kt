@@ -3,7 +3,7 @@ package io.ezjay.bikeshare.adapter
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import io.ezjay.bikeshare.data.Ride
+import io.ezjay.bikeshare.entity.Ride
 
 class RideArrayAdapter(
     private val values : List<Ride>
