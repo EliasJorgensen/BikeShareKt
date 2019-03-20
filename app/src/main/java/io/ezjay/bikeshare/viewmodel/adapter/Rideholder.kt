@@ -1,11 +1,11 @@
-package io.ezjay.bikeshare.adapter
+package io.ezjay.bikeshare.viewmodel.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import io.ezjay.bikeshare.R
-import io.ezjay.bikeshare.entity.Ride
+import io.ezjay.bikeshare.model.Ride
 
 class RideHolder (
     inflater : LayoutInflater,
@@ -22,7 +22,7 @@ class RideHolder (
         this.bikeView.append(ride.bikeName)
         this.startView.append(ride.startRide)
         this.endView.append(ride.endRide)
-        this.startTimeView.append(Ride.formatDate(ride.startTime))
-        this.endTimeView.append(Ride.formatDate(ride.endTime))
+        this.startTimeView.append(ride.startTime)
+        this.endTimeView.append(ride.endTime)
     }
 }

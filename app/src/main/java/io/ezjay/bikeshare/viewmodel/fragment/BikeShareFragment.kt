@@ -1,4 +1,4 @@
-package io.ezjay.bikeshare.fragment
+package io.ezjay.bikeshare.viewmodel.fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,11 +9,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import io.ezjay.bikeshare.activity.EndRideActivity
+import io.ezjay.bikeshare.Main
+import io.ezjay.bikeshare.viewmodel.activity.EndRideActivity
 import io.ezjay.bikeshare.R
-import io.ezjay.bikeshare.activity.StartRideActivity
-import io.ezjay.bikeshare.adapter.RideArrayAdapter
-import io.ezjay.bikeshare.data.RidesDb
+import io.ezjay.bikeshare.model.BikeshareDao
+import io.ezjay.bikeshare.model.Ride
+import io.ezjay.bikeshare.viewmodel.activity.StartRideActivity
+import io.ezjay.bikeshare.viewmodel.adapter.RideArrayAdapter
+import io.realm.Realm
+import io.realm.kotlin.where
 
 class BikeShareFragment : Fragment() {
     // UI
@@ -50,8 +54,9 @@ class BikeShareFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        if (this.view?.context != null)
-            this.list.adapter = RideArrayAdapter(RidesDb.getRides())
+        if (this.view?.context != null) {
+            this.list.adapter = RideArrayAdapter(BikeshareDao.readRides().filter { !it.active })
+        }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

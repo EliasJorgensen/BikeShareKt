@@ -9,9 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.EndRideActivity"></activity>
-        <activity android:name=".activity.StartRideActivity" />
-        <activity android:name=".activity.BikeShareActivity">
+        <activity android:name="io.ezjay.bikeshare.viewmodel.activity.EndRideActivity"></activity>
+        <activity android:name="io.ezjay.bikeshare.viewmodel.activity.StartRideActivity" />
+        <activity android:name="io.ezjay.bikeshare.viewmodel.activity.BikeShareActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

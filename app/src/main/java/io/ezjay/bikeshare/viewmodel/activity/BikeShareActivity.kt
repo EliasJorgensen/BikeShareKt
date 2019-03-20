@@ -1,10 +1,10 @@
-package io.ezjay.bikeshare.activity
+package io.ezjay.bikeshare.viewmodel.activity
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.FrameLayout
 import io.ezjay.bikeshare.R
-import io.ezjay.bikeshare.fragment.BikeShareFragment
+import io.ezjay.bikeshare.viewmodel.fragment.BikeShareFragment
 
 class BikeShareActivity : AppCompatActivity() {
 
