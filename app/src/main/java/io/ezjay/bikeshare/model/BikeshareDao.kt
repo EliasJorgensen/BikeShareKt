@@ -1,11 +1,15 @@
 package io.ezjay.bikeshare.model
 
 import io.realm.Realm
+import io.realm.SyncCredentials
 import io.realm.kotlin.createObject
 import io.realm.kotlin.where
 
 object BikeshareDao {
     fun getBikes() : List<Bike> {
+        val credentials = SyncCredentials.
+
+
         val realm = Realm.getDefaultInstance()
         return realm.where<Bike>().findAll().toList()
     }

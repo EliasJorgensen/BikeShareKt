@@ -9,9 +9,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import io.ezjay.bikeshare.viewmodel.activity.EndRideActivity
 import io.ezjay.bikeshare.R
 import io.ezjay.bikeshare.model.BikeshareDao
+import io.ezjay.bikeshare.viewmodel.activity.EndRideActivity
 import io.ezjay.bikeshare.viewmodel.activity.StartRideActivity
 import io.ezjay.bikeshare.viewmodel.adapter.RideArrayAdapter
 
