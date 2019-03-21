@@ -25,7 +25,7 @@ open class Ride (
     }
 
     companion object {
-        fun getFormattedDate(): String {
+        fun getCurrentFormattedDateTime(): String {
             return DateFormat.format("MMM d, yyyy", Date()) as String
         }
     }

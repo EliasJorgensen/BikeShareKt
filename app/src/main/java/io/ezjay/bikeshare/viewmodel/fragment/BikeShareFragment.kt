@@ -51,7 +51,17 @@ class BikeShareFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         if (this.view?.context != null) {
-            this.list.adapter = RideArrayAdapter(BikeshareDao.getRides().filter { !it.active })
+            val hasActiveRide = BikeshareDao.getActiveRide() != null
+            if (hasActiveRide) {
+                this.endRide.isEnabled = true
+                this.addRide.isEnabled = false
+            }
+            else {
+                this.endRide.isEnabled = false
+                this.addRide.isEnabled = true
+            }
+
+            this.list.adapter = RideArrayAdapter(BikeshareDao.getDoneRides())
         }
     }
 

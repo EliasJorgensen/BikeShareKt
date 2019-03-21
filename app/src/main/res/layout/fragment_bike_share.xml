@@ -10,6 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:enabled="false"
         android:text="@string/add_ride" />
 
     <View
@@ -21,6 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:enabled="false"
         android:text="@string/end_ride" />
 
     <View

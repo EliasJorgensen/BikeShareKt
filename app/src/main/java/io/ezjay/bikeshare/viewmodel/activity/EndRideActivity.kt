@@ -5,45 +5,41 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.TextView
 import io.ezjay.bikeshare.R
+import io.ezjay.bikeshare.model.BikeshareDao
 import io.ezjay.bikeshare.model.Ride
 
 class EndRideActivity : AppCompatActivity() {
 
     // UI
     private lateinit var endRide : Button
-    private lateinit var lastAdded : TextView
-    private lateinit var newWhat : TextView
-    private lateinit var newWhere : TextView
-
-    //private var lastRide : Ride = Ride("", "", "", Ride.getFormattedDate(), Ride.getFormattedDate())
+    private lateinit var header : TextView
+    private lateinit var location : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_end_ride)
 
         this.endRide = this.findViewById(R.id.end_button)
-        this.lastAdded = this.findViewById(R.id.last_added_field)
-        this.newWhat = this.findViewById(R.id.what_text)
-        this.newWhere = this.findViewById(R.id.where_text)
+        this.header = this.findViewById(R.id.header)
+        this.location = this.findViewById(R.id.where_text)
 
         this.endRide.setOnClickListener {
-            if (!isEmpty(this.newWhat) && !isEmpty(this.newWhere)) {
-                //this.lastRide.bikeName = this.newWhat.text.toString().trim()
-                //this.lastRide.endLocation = this.newWhere.text.toString().trim()
+            if (!isEmpty(this.location)) {
+                val activeRide = BikeshareDao.getActiveRide()
+                BikeshareDao.getRealm().executeTransaction {
+                    activeRide?.endLocation = this.location.text.toString().trim()
+                    activeRide?.endTime = Ride.getCurrentFormattedDateTime()
+                    activeRide?.active = false
+                }
 
-                //RidesDb.endRide(this.newWhat.text.toString().trim(), this.newWhere.text.toString().trim())
-
-                this.newWhat.text = ""
-                this.newWhere.text = ""
                 this.updateUI()
             }
         }
-
-        this.updateUI()
     }
 
     private fun updateUI() {
-        //this.lastAdded.text = this.lastRide.toString()
+        this.header.text = "Your ride has been registered."
+        this.endRide.isEnabled = false
     }
 
     private fun isEmpty(text: TextView): Boolean {

@@ -29,7 +29,9 @@ class StartRideActivity : AppCompatActivity() {
             if (!isEmpty(this.bikeName) && !isEmpty(this.location)) {
                 val ride = Ride(
                     bikeName = this.bikeName.text.toString(),
-                    startLocation = this.location.text.toString()
+                    startLocation = this.location.text.toString(),
+                    startTime = Ride.getCurrentFormattedDateTime(),
+                    active = true
                 )
 
                 BikeshareDao.addRide(ride)
@@ -42,6 +44,7 @@ class StartRideActivity : AppCompatActivity() {
 
     private fun updateUI() {
         this.header.text = "Ride started, go get 'em!"
+        this.addRide.isEnabled = false
     }
 
     private fun isEmpty(text: TextView): Boolean {
