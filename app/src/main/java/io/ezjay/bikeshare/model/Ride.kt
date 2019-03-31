@@ -16,7 +16,7 @@ open class Ride (
     var startTime: String = "",
     var endTime: String = "",
     var active: Boolean = false,
-    var bikePicture: ByteArray = ByteArray(256)
+    var bikePicture: ByteArray = ByteArray(0)
 ) : RealmModel {
     override fun toString(): String {
         return if (this.bikeName.isBlank() && this.startLocation.isBlank())

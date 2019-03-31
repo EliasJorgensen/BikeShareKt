@@ -2,15 +2,19 @@ package io.ezjay.bikeshare.viewmodel.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import io.ezjay.bikeshare.R
+import io.ezjay.bikeshare.model.BikeshareDao
 import io.ezjay.bikeshare.model.Ride
 
 class RideHolder (
     inflater : LayoutInflater,
     parent : ViewGroup
 ) : RecyclerView.ViewHolder(inflater.inflate(R.layout.list_item_ride, parent, false)) {
+
+    private var rideId : Long? = null
 
     private val bikeView = this.itemView.findViewById<TextView>(R.id.what_bike_ride)
     private val startView = this.itemView.findViewById<TextView>(R.id.start_ride)
@@ -24,5 +28,11 @@ class RideHolder (
         this.endView.append(ride.endLocation)
         this.startTimeView.append(ride.startTime)
         this.endTimeView.append(ride.endTime)
+
+        this.rideId = ride.id
+
+        this.itemView.setOnClickListener {
+            BikeshareDao.deleteRide(ride)
+        }
     }
 }

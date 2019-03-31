@@ -37,6 +37,14 @@ object BikeshareDao {
         return ride
     }
 
+    fun deleteRide(ride: Ride) {
+        val realm = Realm.getDefaultInstance()
+        val result = realm.where<Ride>().equalTo("id", ride.id).findAll()
+        realm.executeTransaction {
+            result.deleteAllFromRealm()
+        }
+    }
+
     fun getRealm() : Realm {
         return Realm.getDefaultInstance()
     }
