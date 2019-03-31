@@ -6,26 +6,6 @@ import io.realm.kotlin.createObject
 import io.realm.kotlin.where
 
 object BikeshareDao {
-    fun getBikes() : List<Bike> {
-        val credentials = SyncCredentials.
-
-
-        val realm = Realm.getDefaultInstance()
-        return realm.where<Bike>().findAll().toList()
-    }
-
-    fun addBike(bike: Bike) : Bike {
-        val realm = Realm.getDefaultInstance()
-        val index = realm.where<Bike>().count()
-        realm.executeTransaction {
-            val newBike = it.createObject<Bike>(index)
-            newBike.location = bike.location
-            newBike.name = bike.name
-        }
-        bike.id = index
-        return bike
-    }
-    
     fun getRides() : List<Ride> {
         val realm = Realm.getDefaultInstance()
         return realm.where<Ride>().findAll().toList()

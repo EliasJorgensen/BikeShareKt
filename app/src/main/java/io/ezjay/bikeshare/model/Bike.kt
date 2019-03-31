@@ -10,4 +10,4 @@ open class Bike (
     @PrimaryKey var id: Long = 0,
     var name: String? = "",
     var location: String? = ""
-) : RealmModel, Serializable
+) : RealmModel

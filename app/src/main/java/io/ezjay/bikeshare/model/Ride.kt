@@ -15,8 +15,9 @@ open class Ride (
     var endLocation: String = "",
     var startTime: String = "",
     var endTime: String = "",
-    var active: Boolean = false
-) : RealmModel, Serializable {
+    var active: Boolean = false,
+    var bikePicture: ByteArray = ByteArray(256)
+) : RealmModel {
     override fun toString(): String {
         return if (this.bikeName.isBlank() && this.startLocation.isBlank())
             "You have no last ride"
