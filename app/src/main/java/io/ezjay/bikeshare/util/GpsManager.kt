@@ -43,4 +43,10 @@ class GpsManager(val activity: Activity) : LocationListener {
     override fun onProviderEnabled(provider: String?) {}
 
     override fun onProviderDisabled(provider: String?) {}
+
+    companion object {
+        fun locationToString(loc : Location?) : String {
+            return "Lat: ${loc?.latitude}, Lon: ${loc?.longitude}"
+        }
+    }
 }

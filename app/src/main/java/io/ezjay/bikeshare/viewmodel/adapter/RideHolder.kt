@@ -25,8 +25,8 @@ class RideHolder (
         this.bikeView.append(ride.bike?.name)
         this.startView.append(ride.startLocation)
         this.endView.append(ride.endLocation)
-        this.startTimeView.append(ride.startTime)
-        this.endTimeView.append(ride.endTime)
+        this.startTimeView.append(ride.getFormattedStartTime())
+        this.endTimeView.append(ride.getFormattedEndTime())
 
         this.rideId = ride.id
 

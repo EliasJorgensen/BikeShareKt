@@ -61,7 +61,7 @@ class RegisterBikeActivity : AppCompatActivity() {
         this.gpsManager = GpsManager(this)
 
         this.gpsManager.requestLocationUpdates()
-        this.bikeLocation.text = "Lat: ${this.gpsManager.currentLocation?.latitude}, Lon: ${this.gpsManager.currentLocation?.longitude}"
+        this.bikeLocation.text = GpsManager.locationToString(this.gpsManager.currentLocation)
     }
 
     private fun registerBike() {
@@ -73,13 +73,13 @@ class RegisterBikeActivity : AppCompatActivity() {
         BikeDao.addBike(Bike(
             name = this.bikeName.text.toString(),
             type = this.bikeType.text.toString(),
-            location = this.locationToString(this.gpsManager.currentLocation),
+            location = GpsManager.locationToString(this.gpsManager.currentLocation),
             hourlyPrice = this.bikeHourlyPrice.text.toString().toFloatOrNull(),
             picture = PictureUtils.bitmapToByteArray(this.bikeImage as Bitmap),
             available = true
         ))
 
-        this.header.text = "Ride started, go get 'em!"
+        this.header.text = "Bike registered!"
         this.registerBikeButton.isEnabled = false
     }
 
@@ -89,10 +89,6 @@ class RegisterBikeActivity : AppCompatActivity() {
         if (this.bikeHourlyPrice.text.isBlank() && this.bikeHourlyPrice.text.toString().toFloatOrNull() == null) return false
         if (this.bikeImage == null) return false
         return true
-    }
-
-    private fun locationToString(loc : Location?) : String {
-        return "Lat: ${loc?.latitude}, Lon: ${loc?.longitude}"
     }
 
     private fun dispatchTakePictureIntent() {

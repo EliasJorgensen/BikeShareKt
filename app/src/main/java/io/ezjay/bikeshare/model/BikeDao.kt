@@ -10,6 +10,11 @@ object BikeDao {
         return realm.where<Bike>().findAll().toList()
     }
 
+    fun getAvailableBikes() : List<Bike> {
+        val realm = Realm.getDefaultInstance()
+        return realm.where<Bike>().equalTo("available", true).findAll()
+    }
+
     fun addBike(bike : Bike) : Bike {
         val realm = Realm.getDefaultInstance()
         val index = realm.where<Bike>().count()

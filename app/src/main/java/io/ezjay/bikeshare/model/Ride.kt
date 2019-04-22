@@ -11,8 +11,8 @@ open class Ride (
     @PrimaryKey var id: Long? = null,
     var startLocation: String? = null,
     var endLocation: String? = null,
-    var startTime: String? = null,
-    var endTime: String? = null,
+    var startTime: Date? = null,
+    var endTime: Date? = null,
     var bike: Bike? = null,
     var totalCost: Float? = null,
     var active: Boolean = true
@@ -24,9 +24,17 @@ open class Ride (
                 "${this.startTime}, and ended here ${this.endLocation}, at ${this.endTime}"
     }
 
+    fun getFormattedStartTime(): String? {
+        return this.startTime?.let { formatDate(it) }
+    }
+
+    fun getFormattedEndTime(): String? {
+        return this.endTime?.let { formatDate(it) }
+    }
+
     companion object {
-        fun getCurrentFormattedDateTime(): String {
-            return DateFormat.format("MMM d, yyyy", Date()) as String
+        private fun formatDate(date : Date) : String {
+            return DateFormat.format("MMM d, yyyy", date) as String
         }
     }
 }

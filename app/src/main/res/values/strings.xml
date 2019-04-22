@@ -3,7 +3,7 @@
     <string name="what_bike">What bike</string>
     <string name="where">Where?</string>
     <string name="last_added">Last added</string>
-    <string name="add_ride">Add ride</string>
+    <string name="add_ride">Start ride</string>
     <string name="end_ride">End Ride</string>
     <string name="list_rides">List Rides</string>
     <string name="ride_enter_details">Please enter the following details to register a new bike:</string>
@@ -15,4 +15,6 @@
     <string name="location">Location</string>
     <string name="hourly_price">Hourly price (in dkk/hour)</string>
     <string name="register_bike">Register bike</string>
+    <string name="check_bikes">Check bikes</string>
+    <string name="bikes">Bikes</string>
 </resources>
