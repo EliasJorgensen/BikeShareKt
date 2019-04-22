@@ -5,7 +5,7 @@ import io.realm.SyncCredentials
 import io.realm.kotlin.createObject
 import io.realm.kotlin.where
 
-object BikeshareDao {
+object RideDao {
     fun getRides() : List<Ride> {
         val realm = Realm.getDefaultInstance()
         return realm.where<Ride>().findAll().toList()
@@ -26,11 +26,12 @@ object BikeshareDao {
         val index = realm.where<Ride>().count()
         realm.executeTransaction {
             val newRide = it.createObject<Ride>(index)
-            newRide.bikeName = ride.bikeName
             newRide.startLocation = ride.startLocation
             newRide.endLocation = ride.endLocation
             newRide.startTime = ride.startTime
             newRide.endTime = ride.endTime
+            newRide.bike = ride.bike
+            newRide.totalCost = ride.totalCost
             newRide.active = ride.active
         }
         ride.id = index
@@ -43,9 +44,5 @@ object BikeshareDao {
         realm.executeTransaction {
             result.deleteAllFromRealm()
         }
-    }
-
-    fun getRealm() : Realm {
-        return Realm.getDefaultInstance()
     }
 }

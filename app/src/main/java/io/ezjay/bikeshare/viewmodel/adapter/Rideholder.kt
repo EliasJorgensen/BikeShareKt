@@ -2,11 +2,10 @@ package io.ezjay.bikeshare.viewmodel.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import io.ezjay.bikeshare.R
-import io.ezjay.bikeshare.model.BikeshareDao
+import io.ezjay.bikeshare.model.RideDao
 import io.ezjay.bikeshare.model.Ride
 
 class RideHolder (
@@ -23,7 +22,7 @@ class RideHolder (
     private val endTimeView = this.itemView.findViewById<TextView>(R.id.end_time)
 
     fun bind(ride: Ride) {
-        this.bikeView.append(ride.bikeName)
+        this.bikeView.append(ride.bike?.name)
         this.startView.append(ride.startLocation)
         this.endView.append(ride.endLocation)
         this.startTimeView.append(ride.startTime)
@@ -32,7 +31,7 @@ class RideHolder (
         this.rideId = ride.id
 
         this.itemView.setOnClickListener {
-            BikeshareDao.deleteRide(ride)
+            RideDao.deleteRide(ride)
         }
     }
 }

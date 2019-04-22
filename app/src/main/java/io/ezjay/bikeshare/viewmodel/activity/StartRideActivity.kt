@@ -9,9 +9,6 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import io.ezjay.bikeshare.R
-import io.ezjay.bikeshare.model.BikeshareDao
-import io.ezjay.bikeshare.model.Ride
-import io.ezjay.bikeshare.util.PictureUtils
 
 class StartRideActivity : AppCompatActivity() {
 
@@ -40,7 +37,7 @@ class StartRideActivity : AppCompatActivity() {
             this.dispatchTakePictureIntent()
         }
 
-        this.addRide.setOnClickListener {
+/*        this.addRide.setOnClickListener {
             if (!isEmpty(this.bikeName) && !isEmpty(this.location) && this.bikeImage != null) {
                 val ride = Ride(
                     bikeName = this.bikeName.text.toString(),
@@ -50,11 +47,11 @@ class StartRideActivity : AppCompatActivity() {
                     active = true
                 )
 
-                BikeshareDao.addRide(ride)
+                RideDao.addRide(ride)
 
                 this.updateUI()
             }
-        }
+        }*/
 
     }
 

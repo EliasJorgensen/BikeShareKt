@@ -6,7 +6,13 @@
     <string name="add_ride">Add ride</string>
     <string name="end_ride">End Ride</string>
     <string name="list_rides">List Rides</string>
-    <string name="ride_enter_details">Please enter the following details:</string>
+    <string name="ride_enter_details">Please enter the following details to register a new bike:</string>
     <string name="take_picture_of_bike">Take picture of bike</string>
     <string name="bike_image">Bike image</string>
+    <string name="title_activity_register_bike">RegisterBikeActivity</string>
+    <string name="name">Name</string>
+    <string name="type">Type</string>
+    <string name="location">Location</string>
+    <string name="hourly_price">Hourly price</string>
+    <string name="register_bike">Register bike</string>
 </resources>

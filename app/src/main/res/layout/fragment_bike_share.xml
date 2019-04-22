@@ -1,50 +1,61 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="10dp"
-    android:orientation="vertical"
-    android:gravity="center|center_horizontal|center_vertical" >
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_margin="10dp"
+              android:orientation="vertical"
+              android:gravity="center|center_horizontal|center_vertical">
 
     <Button
-        android:id="@+id/add_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:enabled="false"
-        android:text="@string/add_ride" />
+            android:id="@+id/register_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/register_bike"/>
 
     <View
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
 
     <Button
-        android:id="@+id/end_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:enabled="false"
-        android:text="@string/end_ride" />
+            android:id="@+id/add_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:enabled="false"
+            android:text="@string/add_ride"/>
 
     <View
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
 
     <Button
-        android:id="@+id/list_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/list_rides" />
+            android:id="@+id/end_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:enabled="false"
+            android:text="@string/end_ride"/>
 
     <View
-        android:layout_width="match_parent"
-        android:layout_height="20dp" />
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
+
+    <Button
+            android:id="@+id/list_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/list_rides"/>
+
+    <View
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/ride_list"
-        android:visibility="gone"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textSize="12sp" />
+            android:id="@+id/ride_list"
+            android:visibility="gone"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"/>
 
 </LinearLayout>

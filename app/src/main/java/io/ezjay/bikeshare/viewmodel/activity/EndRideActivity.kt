@@ -5,8 +5,6 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.TextView
 import io.ezjay.bikeshare.R
-import io.ezjay.bikeshare.model.BikeshareDao
-import io.ezjay.bikeshare.model.Ride
 
 class EndRideActivity : AppCompatActivity() {
 
@@ -23,10 +21,10 @@ class EndRideActivity : AppCompatActivity() {
         this.header = this.findViewById(R.id.header)
         this.location = this.findViewById(R.id.where_text)
 
-        this.endRide.setOnClickListener {
+/*        this.endRide.setOnClickListener {
             if (!isEmpty(this.location)) {
-                val activeRide = BikeshareDao.getActiveRide()
-                BikeshareDao.getRealm().executeTransaction {
+                val activeRide = RideDao.getActiveRide()
+                RideDao.getRealm().executeTransaction {
                     activeRide?.endLocation = this.location.text.toString().trim()
                     activeRide?.endTime = Ride.getCurrentFormattedDateTime()
                     activeRide?.active = false
@@ -34,7 +32,7 @@ class EndRideActivity : AppCompatActivity() {
 
                 this.updateUI()
             }
-        }
+        }*/
     }
 
     private fun updateUI() {

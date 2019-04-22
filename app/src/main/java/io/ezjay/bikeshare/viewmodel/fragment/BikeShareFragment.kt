@@ -10,13 +10,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import io.ezjay.bikeshare.R
-import io.ezjay.bikeshare.model.BikeshareDao
+import io.ezjay.bikeshare.model.RideDao
 import io.ezjay.bikeshare.viewmodel.activity.EndRideActivity
+import io.ezjay.bikeshare.viewmodel.activity.RegisterBikeActivity
 import io.ezjay.bikeshare.viewmodel.activity.StartRideActivity
 import io.ezjay.bikeshare.viewmodel.adapter.RideArrayAdapter
 
 class BikeShareFragment : Fragment() {
     // UI
+    private lateinit var registerBike : Button
     private lateinit var addRide : Button
     private lateinit var endRide : Button
     private lateinit var listRides : Button
@@ -33,6 +35,7 @@ class BikeShareFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        this.registerBike = view.findViewById(R.id.register_button)
         this.addRide = view.findViewById(R.id.add_button)
         this.endRide = view.findViewById(R.id.end_button)
         this.listRides = view.findViewById(R.id.list_button)
@@ -51,7 +54,7 @@ class BikeShareFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         if (this.view?.context != null) {
-            val hasActiveRide = BikeshareDao.getActiveRide() != null
+            val hasActiveRide = RideDao.getActiveRide() != null
             if (hasActiveRide) {
                 this.endRide.isEnabled = true
                 this.addRide.isEnabled = false
@@ -61,7 +64,7 @@ class BikeShareFragment : Fragment() {
                 this.addRide.isEnabled = true
             }
 
-            this.list.adapter = RideArrayAdapter(BikeshareDao.getDoneRides())
+            this.list.adapter = RideArrayAdapter(RideDao.getDoneRides())
         }
     }
 
@@ -71,6 +74,10 @@ class BikeShareFragment : Fragment() {
     }
 
     private fun registerEventListeners() {
+        this.registerBike.setOnClickListener {
+            this.startActivity(Intent(this.activity, RegisterBikeActivity::class.java))
+        }
+
         this.addRide.setOnClickListener {
             val intent = Intent(this.activity,  StartRideActivity::class.java)
             this.startActivity(intent)
