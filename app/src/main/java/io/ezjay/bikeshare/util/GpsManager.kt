@@ -1,4 +1,4 @@
-package io.ezjay.bikeshare.viewmodel.util
+package io.ezjay.bikeshare.util
 
 import android.Manifest
 import android.app.Activity

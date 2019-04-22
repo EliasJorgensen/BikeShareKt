@@ -13,6 +13,6 @@
     <string name="name">Name</string>
     <string name="type">Type</string>
     <string name="location">Location</string>
-    <string name="hourly_price">Hourly price</string>
+    <string name="hourly_price">Hourly price (in dkk/hour)</string>
     <string name="register_bike">Register bike</string>
 </resources>

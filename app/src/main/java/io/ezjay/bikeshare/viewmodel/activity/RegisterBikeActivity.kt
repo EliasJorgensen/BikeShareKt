@@ -3,19 +3,25 @@ package io.ezjay.bikeshare.viewmodel.activity
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Bitmap
+import android.location.Location
 import android.os.Bundle
 import android.provider.MediaStore
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import io.ezjay.bikeshare.R
-import io.ezjay.bikeshare.viewmodel.util.GpsManager
+import io.ezjay.bikeshare.model.Bike
+import io.ezjay.bikeshare.model.BikeDao
+import io.ezjay.bikeshare.util.PictureUtils
+import io.ezjay.bikeshare.util.GpsManager
 
 class RegisterBikeActivity : AppCompatActivity() {
 
     // UI
     private lateinit var bikePictureView : ImageView
+    private lateinit var header : TextView
     private lateinit var bikeName : TextView
     private lateinit var bikeType : TextView
     private lateinit var bikeLocation : TextView
@@ -35,6 +41,7 @@ class RegisterBikeActivity : AppCompatActivity() {
         this.setContentView(R.layout.activity_register_bike)
 
         this.bikePictureView = this.findViewById(R.id.image_view)
+        this.header = this.findViewById(R.id.header)
         this.bikeName = this.findViewById(R.id.bike_name)
         this.bikeType = this.findViewById(R.id.bike_type)
         this.bikeLocation = this.findViewById(R.id.bike_location)
@@ -47,10 +54,45 @@ class RegisterBikeActivity : AppCompatActivity() {
             this.dispatchTakePictureIntent()
         }
 
+        this.registerBikeButton.setOnClickListener {
+            this.registerBike()
+        }
+
         this.gpsManager = GpsManager(this)
 
         this.gpsManager.requestLocationUpdates()
         this.bikeLocation.text = "Lat: ${this.gpsManager.currentLocation?.latitude}, Lon: ${this.gpsManager.currentLocation?.longitude}"
+    }
+
+    private fun registerBike() {
+        if (!this.validateFields()) {
+            Toast.makeText(this.applicationContext, "Please ensure that all fields are correct", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        BikeDao.addBike(Bike(
+            name = this.bikeName.text.toString(),
+            type = this.bikeType.text.toString(),
+            location = this.locationToString(this.gpsManager.currentLocation),
+            hourlyPrice = this.bikeHourlyPrice.text.toString().toFloatOrNull(),
+            picture = PictureUtils.bitmapToByteArray(this.bikeImage as Bitmap),
+            available = true
+        ))
+
+        this.header.text = "Ride started, go get 'em!"
+        this.registerBikeButton.isEnabled = false
+    }
+
+    private fun validateFields() : Boolean {
+        if (this.bikeName.text.isBlank()) return false
+        if (this.bikeType.text.isBlank()) return false
+        if (this.bikeHourlyPrice.text.isBlank() && this.bikeHourlyPrice.text.toString().toFloatOrNull() == null) return false
+        if (this.bikeImage == null) return false
+        return true
+    }
+
+    private fun locationToString(loc : Location?) : String {
+        return "Lat: ${loc?.latitude}, Lon: ${loc?.longitude}"
     }
 
     private fun dispatchTakePictureIntent() {
@@ -66,8 +108,8 @@ class RegisterBikeActivity : AppCompatActivity() {
             val imageBitmap = data?.extras?.get("data") as Bitmap
             this.bikeImage = Bitmap.createScaledBitmap(
                 imageBitmap,
-                imageBitmap.width * 3,
-                imageBitmap.height * 3,
+                imageBitmap.width * 2,
+                imageBitmap.height * 2,
                 true
             )
             this.bikePictureView.setImageBitmap(this.bikeImage)
