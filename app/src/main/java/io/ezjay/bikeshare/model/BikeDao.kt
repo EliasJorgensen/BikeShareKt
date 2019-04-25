@@ -38,4 +38,8 @@ object BikeDao {
             result.deleteAllFromRealm()
         }
     }
+
+    fun getRealm() : Realm {
+        return Realm.getDefaultInstance()
+    }
 }

@@ -4,7 +4,7 @@
               android:layout_height="match_parent"
               android:orientation="vertical"
               android:layout_margin="15dp">
-
+        }
     <TextView
             android:text="@string/bikes"
             android:textSize="36sp"
@@ -12,6 +12,14 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:id="@+id/header"/>
+
+    <TextView
+            android:text="@string/no_bikes"
+            android:textSize="18sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/no_bikes"
+            android:visibility="gone"/>
 
     <LinearLayout
             android:layout_width="match_parent"

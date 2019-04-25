@@ -17,4 +17,7 @@
     <string name="register_bike">Register bike</string>
     <string name="check_bikes">Check bikes</string>
     <string name="bikes">Bikes</string>
+    <string name="no_available_bikes">There are no available bikes, try again later</string>
+    <string name="no_bikes">There are no bikes, try again later</string>
+    <string name="ride_started">Ride started, go get \'em!</string>
 </resources>

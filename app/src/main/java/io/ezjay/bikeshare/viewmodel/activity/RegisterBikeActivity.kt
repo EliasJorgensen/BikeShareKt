@@ -86,7 +86,7 @@ class RegisterBikeActivity : AppCompatActivity() {
     private fun validateFields() : Boolean {
         if (this.bikeName.text.isBlank()) return false
         if (this.bikeType.text.isBlank()) return false
-        if (this.bikeHourlyPrice.text.isBlank() && this.bikeHourlyPrice.text.toString().toFloatOrNull() == null) return false
+        if (this.bikeHourlyPrice.text.isBlank() || this.bikeHourlyPrice.text.toString().toFloatOrNull() == null) return false
         if (this.bikeImage == null) return false
         return true
     }
