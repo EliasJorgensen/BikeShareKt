@@ -46,7 +46,10 @@ class GpsManager(val activity: Activity) : LocationListener {
 
     companion object {
         fun locationToString(loc : Location?) : String {
-            return "Lat: ${loc?.latitude}, Lon: ${loc?.longitude}"
+            return if (loc != null)
+                "Lat: ${loc.latitude}, Lon: ${loc.longitude}"
+            else
+                "Could not find location"
         }
     }
 }

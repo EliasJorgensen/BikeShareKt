@@ -6,6 +6,11 @@ import io.realm.kotlin.createObject
 import io.realm.kotlin.where
 
 object RideDao {
+    fun getRide(id: Long) : Ride? {
+        val realm = Realm.getDefaultInstance()
+        return realm.where<Ride>().equalTo("id", id).findFirst()
+    }
+
     fun getRides() : List<Ride> {
         val realm = Realm.getDefaultInstance()
         return realm.where<Ride>().findAll().toList()
@@ -44,5 +49,9 @@ object RideDao {
         realm.executeTransaction {
             result.deleteAllFromRealm()
         }
+    }
+
+    fun getRealm() : Realm {
+        return Realm.getDefaultInstance()
     }
 }

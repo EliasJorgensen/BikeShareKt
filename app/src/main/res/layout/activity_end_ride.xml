@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:id="@+id/header"
-            android:text="@string/ride_enter_details" />
+            android:text="@string/end_ride_text" />
 
     </LinearLayout>
 
@@ -38,7 +38,48 @@
             android:id="@+id/where_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text" />
+            android:inputType="text"
+            android:enabled="false"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/duration" />
+
+        <EditText
+                android:id="@+id/duration_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:enabled="false" />
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/total_cost" />
+
+        <EditText
+                android:id="@+id/total_cost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:enabled="false" />
 
     </LinearLayout>
 
