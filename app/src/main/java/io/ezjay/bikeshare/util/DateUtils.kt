@@ -1,5 +1,6 @@
 package io.ezjay.bikeshare.util
 
+import android.text.format.DateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
 import kotlin.math.absoluteValue
@@ -13,5 +14,9 @@ object DateUtils {
 
     fun getDifference(from: Date, to: Date) : Long {
         return to.time - from.time
+    }
+
+    fun format(date: Date) : String {
+        return DateFormat.format("MMM d, yyyy", date) as String
     }
 }

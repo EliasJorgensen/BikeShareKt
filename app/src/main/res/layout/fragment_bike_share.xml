@@ -58,15 +58,4 @@
             android:layout_gravity="center"
             android:text="@string/list_rides"/>
 
-    <View
-            android:layout_width="match_parent"
-            android:layout_height="20dp"/>
-
-    <android.support.v7.widget.RecyclerView
-            android:id="@+id/ride_list"
-            android:visibility="gone"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:textSize="12sp"/>
-
 </LinearLayout>

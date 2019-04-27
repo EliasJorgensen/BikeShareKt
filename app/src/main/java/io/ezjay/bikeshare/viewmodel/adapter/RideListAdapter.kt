@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import io.ezjay.bikeshare.model.Ride
 
-class RideArrayAdapter(
-    private val values : List<Ride>
+class RideListAdapter (
+    private val rides : List<Ride>
 ) : RecyclerView.Adapter<RideHolder>() {
 
     override fun onCreateViewHolder(p: ViewGroup, v: Int): RideHolder {
@@ -15,10 +15,10 @@ class RideArrayAdapter(
     }
 
     override fun getItemCount(): Int {
-        return this.values.size
+        return this.rides.size
     }
 
     override fun onBindViewHolder(holder: RideHolder, i: Int) {
-        holder.bind(this.values[i])
+        holder.bind(this.rides[i])
     }
 }

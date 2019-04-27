@@ -18,8 +18,8 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".viewmodel.activity.CheckBikesActivity">
-        </activity>
+        <activity android:name=".viewmodel.activity.RideHistoryActivity"/>
+        <activity android:name=".viewmodel.activity.CheckBikesActivity"/>
         <activity android:name=".viewmodel.activity.RegisterBikeActivity"/>
         <activity android:name=".viewmodel.activity.EndRideActivity"/>
         <activity android:name=".viewmodel.activity.StartRideActivity"/>

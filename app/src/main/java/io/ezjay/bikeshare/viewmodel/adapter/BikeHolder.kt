@@ -15,12 +15,12 @@ class BikeHolder (
     parent : ViewGroup
 ) : RecyclerView.ViewHolder(inflater.inflate(R.layout.list_item_bike, parent, false)) {
 
-    var name: TextView = itemView.findViewById(R.id.bike_name)
-    var type : TextView = itemView.findViewById(R.id.bike_type)
-    var location: TextView = itemView.findViewById(R.id.bike_location)
-    var price: TextView = itemView.findViewById(R.id.bike_price)
-    var available: TextView = itemView.findViewById(R.id.bike_available)
-    var photo: ImageView = itemView.findViewById(R.id.bike_photo)
+    private var name: TextView = itemView.findViewById(R.id.bike_name)
+    private var type : TextView = itemView.findViewById(R.id.bike_type)
+    private var location: TextView = itemView.findViewById(R.id.bike_location)
+    private var price: TextView = itemView.findViewById(R.id.bike_price)
+    private var available: TextView = itemView.findViewById(R.id.bike_available)
+    private var photo: ImageView = itemView.findViewById(R.id.bike_photo)
 
     fun bind(bike: Bike) {
         name.text = bike.name

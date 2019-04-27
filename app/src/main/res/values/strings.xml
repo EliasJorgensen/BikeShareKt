@@ -23,4 +23,7 @@
     <string name="duration">Duration</string>
     <string name="total_cost">Total cost</string>
     <string name="end_ride_text">Do you want to end your ride? (Pricing will be recalculated upon ending)</string>
+    <string name="title_activity_ride_history">RideHistoryActivity</string>
+    <string name="no_rides">You currently have no rides</string>
+    <string name="rides">Rides</string>
 </resources>

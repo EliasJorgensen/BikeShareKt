@@ -5,7 +5,7 @@
               android:orientation="vertical"
               android:layout_margin="15dp">
     <TextView
-            android:text="@string/bikes"
+            android:text="@string/rides"
             android:textSize="36sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -13,7 +13,7 @@
             android:id="@+id/header"/>
 
     <TextView
-            android:text="@string/no_bikes"
+            android:text="@string/no_rides"
             android:textSize="18sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
             android:weightSum="1">
 
         <android.support.v7.widget.RecyclerView
-                android:id="@+id/bike_list"
+                android:id="@+id/ride_list"
                 android:scrollbars="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
