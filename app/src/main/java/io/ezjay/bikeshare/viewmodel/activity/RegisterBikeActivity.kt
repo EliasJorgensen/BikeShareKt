@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.location.Location
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.provider.MediaStore
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
@@ -35,6 +36,9 @@ class RegisterBikeActivity : AppCompatActivity() {
 
     private lateinit var gpsManager : GpsManager
 
+    private var isRegisterBikeButtonEnabled = true
+    private val registeredBikeHeaderText = "Bike registered!"
+
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,6 +66,17 @@ class RegisterBikeActivity : AppCompatActivity() {
 
         this.gpsManager.requestLocationUpdates()
         this.bikeLocation.text = GpsManager.locationToString(this.gpsManager.currentLocation)
+
+        if (savedInstanceState != null) {
+            this.isRegisterBikeButtonEnabled = savedInstanceState.getBoolean("isRegisterBikeButtonEnabled")
+            this.registerBikeButton.isEnabled = this.isRegisterBikeButtonEnabled
+            savedInstanceState.getByteArray("bikeImage")?.let {
+                this.bikeImage = PictureUtils.byteArrayToBitmap(it)
+                this.bikePictureView.setImageBitmap(this.bikeImage)
+            }
+            if (!this.isRegisterBikeButtonEnabled)
+                this.header.text = this.registeredBikeHeaderText
+        }
     }
 
     private fun registerBike() {
@@ -79,8 +94,9 @@ class RegisterBikeActivity : AppCompatActivity() {
             available = true
         ))
 
-        this.header.text = "Bike registered!"
-        this.registerBikeButton.isEnabled = false
+        this.header.text = this.registeredBikeHeaderText
+        this.isRegisterBikeButtonEnabled = false
+        this.registerBikeButton.isEnabled = this.isRegisterBikeButtonEnabled
     }
 
     private fun validateFields() : Boolean {
@@ -110,5 +126,11 @@ class RegisterBikeActivity : AppCompatActivity() {
             )
             this.bikePictureView.setImageBitmap(this.bikeImage)
         }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle?) {
+        outState?.putBoolean("isRegisterBikeButtonEnabled", this.isRegisterBikeButtonEnabled)
+        this.bikeImage?.let { outState?.putByteArray("bikeImage", PictureUtils.bitmapToByteArray(it)) }
+        super.onSaveInstanceState(outState)
     }
 }

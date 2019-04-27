@@ -27,6 +27,7 @@ class BikeShareFragment : Fragment() {
     private lateinit var list : RecyclerView
 
     private var showList = false
+    private val doneRides = RideDao.getDoneRides()
 
     companion object {
         private const val SHOW_LIST = "showList"
@@ -43,6 +44,7 @@ class BikeShareFragment : Fragment() {
         this.endRide = view.findViewById(R.id.end_button)
         this.listRides = view.findViewById(R.id.list_button)
 
+        this.listRides.isEnabled = this.doneRides.isNotEmpty()
         this.list = view.findViewById(R.id.ride_list)
         this.list.layoutManager = LinearLayoutManager(this.context)
 
@@ -67,7 +69,7 @@ class BikeShareFragment : Fragment() {
                 this.addRide.isEnabled = true
             }
 
-            this.list.adapter = RideArrayAdapter(RideDao.getDoneRides())
+            this.list.adapter = RideArrayAdapter(doneRides)
         }
     }
 

@@ -1,6 +1,5 @@
 package io.ezjay.bikeshare.viewmodel.activity
 
-import android.opengl.Visibility
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
@@ -24,6 +23,7 @@ class StartRideActivity : AppCompatActivity(), AdapterView.OnItemSelectedListene
     private val bikeList = BikeDao.getAvailableBikes()
 
     private var selectedBike = 0
+    private var hasStartedRide = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,6 +58,14 @@ class StartRideActivity : AppCompatActivity(), AdapterView.OnItemSelectedListene
             this.startRide.isEnabled = false
             this.dropdownDescription.visibility = View.VISIBLE
         }
+
+        if (savedInstanceState != null) {
+            this.selectedBike = savedInstanceState.getInt("selectedBike")
+            this.hasStartedRide = savedInstanceState.getBoolean("hasStartedRide")
+
+            this.startRide.isEnabled = !this.hasStartedRide
+            this.addedText.visibility = if (this.hasStartedRide) View.VISIBLE else View.GONE
+        }
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {}
@@ -82,5 +90,11 @@ class StartRideActivity : AppCompatActivity(), AdapterView.OnItemSelectedListene
 
         this.startRide.isEnabled = false
         this.addedText.visibility = View.VISIBLE
+    }
+
+    override fun onSaveInstanceState(outState: Bundle?) {
+        outState?.putInt("selectedBike", this.selectedBike)
+        outState?.putBoolean("hasStartedRide", this.hasStartedRide)
+        super.onSaveInstanceState(outState)
     }
 }
