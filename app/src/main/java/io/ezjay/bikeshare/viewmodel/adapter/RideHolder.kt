@@ -13,7 +13,7 @@ import io.ezjay.bikeshare.util.PictureUtils
 class RideHolder (
     inflater : LayoutInflater,
     parent : ViewGroup
-) : RecyclerView.ViewHolder(inflater.inflate(R.layout.list_item_bike, parent, false)) {
+) : RecyclerView.ViewHolder(inflater.inflate(R.layout.list_item_ride, parent, false)) {
 
     private var bikePhoto = itemView.findViewById<ImageView>(R.id.bike_photo)
     private var startTime = itemView.findViewById<TextView>(R.id.start_time)
